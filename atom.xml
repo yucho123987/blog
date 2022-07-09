@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yucho&#39;s blog</title>
+  
+  <subtitle>Do as u can</subtitle>
+  <link href="https://blog.yucho258.tk/atom.xml" rel="self"/>
+  
+  <link href="https://blog.yucho258.tk/"/>
+  <updated>2022-07-09T08:34:43.202Z</updated>
+  <id>https://blog.yucho258.tk/</id>
+  
+  <author>
+    <name>Yucho</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何加速青年大学习视频</title>
+    <link href="https://blog.yucho258.tk/2022/07/09/qndxx/"/>
+    <id>https://blog.yucho258.tk/2022/07/09/qndxx/</id>
+    <published>2022-07-09T08:34:43.214Z</published>
+    <updated>2022-07-09T08:34:43.202Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装X5内核（tbs）（一次）"><a href="#安装X5内核（tbs）（一次）" class="headerlink" title="安装X5内核（tbs）（一次）"></a>安装X5内核（tbs）（一次）</h2><p>首先，由于新版微信已经完全去除了X5内核支持，所以需要<strong>安装老版微信</strong>。我这里用的是8.0.20版本的，可以在酷安微信历史版本里找到。要安装老版，需要先卸载新版。<br>然后，打开微信，登录帐号，给随便一个人（可以是微信客服）依次发以下两条链接：  </p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debugmm.qq.com/?forcex5=true</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://debugtbs.qq.com</span><br></pre></td></tr></table></figure><p><a href="https://imgtu.com/i/jrmTOI"><img src="https://s1.ax1x.com/2022/07/09/jrmTOI.jpg" alt="jrmTOI.jpg"></a><br>然后点第一个链接（debugmm开头的那个），会打开微信官网并且提示<strong>“force use x5 switch is on”</strong>。<br><a href="https://imgtu.com/i/jrmo6A"><img src="https://s1.ax1x.com/2022/07/09/jrmo6A.jpg" alt="jrmo6A.jpg"></a><br>然后点击第二个链接，进入tbs调试页面。<br><a href="https://imgtu.com/i/jrm5SH"><img src="https://s1.ax1x.com/2022/07/09/jrm5SH.jpg" alt="jrm5SH.jpg"></a><br>然后<a href="https://yucho.lanzoul.com/iBhhA03bz8wf">点击这里</a>，或者扫下面的二维码，下载tbs内核，把apk文件放到Android&#x2F;data&#x2F;com.tencent.mm&#x2F;files&#x2F;tbs目录下。<br><a href="https://imgtu.com/i/jrmfYD"><img src="https://s1.ax1x.com/2022/07/09/jrmfYD.png" alt="jrmfYD.png"></a><br>然后点击“<strong>安装本地内核</strong>”，等待安装完成重启。<br><a href="https://imgtu.com/i/jrmhfe"><img src="https://s1.ax1x.com/2022/07/09/jrmhfe.jpg" alt="jrmhfe.jpg"></a><br><a href="https://imgtu.com/i/jrmWFO"><img src="https://s1.ax1x.com/2022/07/09/jrmWFO.jpg" alt="jrmWFO.jpg"></a></p><h2 id="启用VConsole调试功能（一次）"><a href="#启用VConsole调试功能（一次）" class="headerlink" title="启用VConsole调试功能（一次）"></a>启用VConsole调试功能（一次）</h2><p>重启后再次打开上面第二个链接，进入tbs调试页面，点击“<strong>查看版本信息</strong>”，如果正常的话，内核版本信息应该是“45947(20220121205348)”。<br><a href="https://imgtu.com/i/jrmyO1"><img src="https://s1.ax1x.com/2022/07/09/jrmyO1.jpg" alt="jrmyO1.jpg"></a><br>然后点击右下角的“<strong>DebugX5</strong>”，进入X5 调试页面。<br>点击上面的“<strong>信息</strong>”，往下翻找到“<strong>打开vConsole调试功能</strong>”，勾选，然后刷新页面。<br>刷新页面后页面右下角出现绿色vConsole按钮，表示开启成功。<br><a href="https://imgtu.com/i/jrmcex"><img src="https://s1.ax1x.com/2022/07/09/jrmcex.jpg" alt="jrmcex.jpg"></a></p><h2 id="视频提速"><a href="#视频提速" class="headerlink" title="视频提速"></a>视频提速</h2><p>之后打开青年大学习页面，播放视频。<br><a href="https://imgtu.com/i/jrm2TK"><img src="https://s1.ax1x.com/2022/07/09/jrm2TK.jpg" alt="jrm2TK.jpg"></a><br>然后点击右下角vConsole按钮，打开vConsole面板。<br>然后点击下面的输入框（OK按钮旁边），输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function()&#123;document.getElementsByTagName(&quot;video&quot;)[0].playbackRate=9&#125;,500)</span><br></pre></td></tr></table></figure><p>其中9是视频倍速，你可以改成别的（1~9）。<br><a href="https://imgtu.com/i/jrmsyR"><img src="https://s1.ax1x.com/2022/07/09/jrmsyR.jpg" alt="jrmsyR.jpg"></a><br>点击OK按钮，执行。<br><a href="https://imgtu.com/i/jrmgw6"><img src="https://s1.ax1x.com/2022/07/09/jrmgw6.jpg" alt="jrmgw6.jpg"></a><br>然后点击右下角关闭面板，就可以看到视频已经加速播放了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;安装X5内核（tbs）（一次）&quot;&gt;&lt;a href=&quot;#安装X5内核（tbs）（一次）&quot; class=&quot;headerlink&quot; title=&quot;安装X5内核（tbs）（一次）&quot;&gt;&lt;/a&gt;安装X5内核（tbs）（一次）&lt;/h2&gt;&lt;p&gt;首先，由于新版微信已经完全去除了X5</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello, Hexo!</title>
+    <link href="https://blog.yucho258.tk/2022/06/19/hello-hexo/"/>
+    <id>https://blog.yucho258.tk/2022/06/19/hello-hexo/</id>
+    <published>2022-06-19T01:00:21.056Z</published>
+    <updated>2022-06-19T01:00:21.044Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前就有要搬到 Hexo 的意愿了，只是懒得安装配置。最近我的磨貌似越来越不稳定了，大概快撑不住了吧。以后就在这儿写点东西吧。默认主题先用一段时间，以后再写个自己的主题。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;之前就有要搬到 Hexo 的意愿了，只是懒得安装配置。最近我的磨貌似越来越不稳定了，大概快撑不住了吧。以后就在这儿写点东西吧。默认主题先用一段时间，以后再写个自己的主题。&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.yucho258.tk/2022/06/19/hello-world/"/>
+    <id>https://blog.yucho258.tk/2022/06/19/hello-world/</id>
+    <published>2022-06-18T23:37:15.034Z</published>
+    <updated>2022-06-18T23:37:15.034Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
