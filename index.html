@@ -77,6 +77,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-compile-caddy-on-termux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/08/02/compile-caddy-on-termux.html" class="article-date">
+  <time class="dt-published" datetime="2025-08-02T07:48:00.000Z" itemprop="datePublished">2025-08-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BC%96%E8%AF%91/">编译</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/08/02/compile-caddy-on-termux.html">在 Termux 上编译安装 Caddy</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Termux 官方源中的 Caddy 不包括非标准模块，如果需要包含非标准模块，就需要自己编译。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
+<li>需要参考<a href="https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux.html">这篇文章</a>，安装 xcaddy。</li>
+<li>需要一个稳定的梯子&#x2F;节点。</li>
+</ol>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>不包含非标准模块：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcaddy build</span><br></pre></td></tr></table></figure>
+<p>包含非标准模块 replace-response：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xcaddy build \</span><br><span class="line">--with github.com/caddyserver/replace-response</span><br></pre></td></tr></table></figure>
+<p>编译过程中以及编译结束手机可能会卡顿，属正常现象。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>编译好的 Caddy 位于 <code>$HOME/go/bin/caddy</code>，使用 cp 命令将其复制到 Termux 的 bin 目录：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">$HOME</span>/go/bin/caddy <span class="variable">$PREFIX</span>/bin/</span><br></pre></td></tr></table></figure>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>运行 <code>caddy version</code>，如果输出类似如下，则说明安装完成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v2.10.0 h1:fonubSaQKF1YANl8TXqGcn4IbIRUDdfAkpcsfI/vX5U=</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://blog.yucho.top/2025/08/02/compile-caddy-on-termux.html" data-id="cmdtybpb90000mbs6607i1l6m" data-title="在 Termux 上编译安装 Caddy" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Caddy/" rel="tag">Caddy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Termux/" rel="tag">Termux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcaddy/" rel="tag">xcaddy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-compile-xcaddy-on-termux" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/08/02/compile-xcaddy-on-termux.html" class="article-date">
@@ -121,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux.html" data-id="cmdtxc0co0000tks676hx9awg" data-title="在 Termux 上编译安装 xcaddy" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux.html" data-id="cmdtybpcx0001mbs6ef352xx4" data-title="在 Termux 上编译安装 xcaddy" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -174,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://blog.yucho.top/2025/08/02/hello-world.html" data-id="cmdtxc0dp0001tks666uia3mg" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      <a data-url="https://blog.yucho.top/2025/08/02/hello-world.html" data-id="cmdtybpee0004mbs63tde946a" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -206,7 +263,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Termux/" rel="tag">Termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xcaddy/" rel="tag">xcaddy</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Caddy/" rel="tag">Caddy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Termux/" rel="tag">Termux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/xcaddy/" rel="tag">xcaddy</a></li></ul>
     </div>
   </div>
 
@@ -216,7 +273,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Termux/" style="font-size: 10px;">Termux</a> <a href="/tags/xcaddy/" style="font-size: 10px;">xcaddy</a>
+      <a href="/tags/Caddy/" style="font-size: 10px;">Caddy</a> <a href="/tags/Termux/" style="font-size: 20px;">Termux</a> <a href="/tags/xcaddy/" style="font-size: 20px;">xcaddy</a>
     </div>
   </div>
 
@@ -236,6 +293,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/08/02/compile-caddy-on-termux.html">在 Termux 上编译安装 Caddy</a>
+          </li>
         
           <li>
             <a href="/2025/08/02/compile-xcaddy-on-termux.html">在 Termux 上编译安装 xcaddy</a>
