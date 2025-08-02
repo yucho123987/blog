@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yucho&#39;s Blog</title>
+  
+  <subtitle>What doesn&#39;t kill you makes you stronger.</subtitle>
+  <link href="https://blog.yucho.top/atom.xml" rel="self"/>
+  
+  <link href="https://blog.yucho.top/"/>
+  <updated>2025-08-02T05:24:00.000Z</updated>
+  <id>https://blog.yucho.top/</id>
+  
+  <author>
+    <name>Yucho</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在 Termux 上编译安装 xcaddy</title>
+    <link href="https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux/"/>
+    <id>https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux/</id>
+    <published>2025-08-02T05:20:00.000Z</published>
+    <updated>2025-08-02T05:24:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>虽然 Caddy 在 Termux 的官方源中，但是官方源的 Caddy 不包含任何非标准模块。同时，目前官方源中并不包括 xcaddy 。因此，要获得含有非标准模块的 Caddy，就需要先编译安装 xcaddy。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>编译 xcaddy 前，需要先安装 golang：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install golang -y</span><br></pre></td></tr></table></figure><p>同时，还需要准备足够的存储空间（至少 10 MB）和运行内存。</p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>执行这条命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest</span><br></pre></td></tr></table></figure><p>输出很少，长这样：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">go: downloading github.com/caddyserver/xcaddy v0.4.5</span><br><span class="line">go: downloading github.com/spf13/cobra v1.9.1</span><br><span class="line">go: downloading github.com/Masterminds/semver/v3 v3.4.0</span><br><span class="line">go: downloading github.com/josephspurrier/goversioninfo v1.5.0</span><br><span class="line">go: downloading github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510</span><br><span class="line">go: downloading github.com/spf13/pflag v1.0.6</span><br><span class="line">go: downloading github.com/akavel/rsrc v0.10.2</span><br></pre></td></tr></table></figure><p>没有意外的话，输出就这些。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>编译好的 xcaddy 位于 <code>$HOME/go/bin/xcaddy</code>，使用 cp 命令将其复制到 Termux 的 bin 目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">$HOME</span>/go/bin/xcaddy <span class="variable">$PREFIX</span>/bin/</span><br></pre></td></tr></table></figure><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>运行 <code>xcaddy</code> ，如果输出如下所示则安装成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go: cannot match &quot;all&quot;: go.mod file not found in current directory or any parent directory; see &#x27;go help modules&#x27;</span><br><span class="line">Error: exec 0x5abfcaa8c0: exit status 1:</span><br><span class="line">exec 0x5abfcaa8c0: exit status 1:</span><br></pre></td></tr></table></figure><p>大功告成。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;虽然 Caddy 在 Termux 的官方源中，但是官方源的 Caddy 不包含任何非标准模块。同时，目前官方源中并不包括 xcaddy 。因此，要获得含有非标准模块的 Caddy，就需要先编译安装 xcaddy。&lt;/p&gt;
+&lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot;</summary>
+      
+    
+    
+    
+    <category term="编译" scheme="https://blog.yucho.top/categories/%E7%BC%96%E8%AF%91/"/>
+    
+    
+    <category term="Termux" scheme="https://blog.yucho.top/tags/Termux/"/>
+    
+    <category term="xcaddy" scheme="https://blog.yucho.top/tags/xcaddy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.yucho.top/2025/08/02/hello-world/"/>
+    <id>https://blog.yucho.top/2025/08/02/hello-world/</id>
+    <published>2025-08-02T03:47:00.000Z</published>
+    <updated>2025-08-02T05:23:27.571Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
