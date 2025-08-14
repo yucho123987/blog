@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yucho&#39;s Blog</title>
+  
+  <subtitle>What doesn&#39;t kill you makes you stronger.</subtitle>
+  <link href="https://blog.yucho.top/atom.xml" rel="self"/>
+  
+  <link href="https://blog.yucho.top/"/>
+  <updated>2025-08-14T14:53:00.000Z</updated>
+  <id>https://blog.yucho.top/</id>
+  
+  <author>
+    <name>Yucho</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在 Linux Mint 上安装 Android NDK</title>
+    <link href="https://blog.yucho.top/2025/08/14/install-android-ndk.html"/>
+    <id>https://blog.yucho.top/2025/08/14/install-android-ndk.html</id>
+    <published>2025-08-14T14:53:00.000Z</published>
+    <updated>2025-08-14T14:53:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>要为 Android 交叉编译各种程序，就不得不安装 Android NDK。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol><li>至少 2GB 的可用存储空间</li><li>稳定的网络环境</li></ol><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><h3 id="使用浏览器从官网下载"><a href="#使用浏览器从官网下载" class="headerlink" title="使用浏览器从官网下载"></a>使用浏览器从官网下载</h3><p>访问 <a href="https://developer.android.google.cn/ndk/downloads?hl=zh-cn">NDK 下载页面</a>，找到合适的 NDK 版本（比如 r27c），点击链接下载 zip 文件。</p><h3 id="通过命令行下载"><a href="#通过命令行下载" class="headerlink" title="通过命令行下载"></a>通过命令行下载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">&quot;https://dl.google.com/android/repository/android-ndk-[andrid_ndk_version]-linux-x86_64.zip&quot;</span></span><br></pre></td></tr></table></figure><p>其中 [andrid_ndk_version] 替换为所要下载的 NDK 版本，例如 r20。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><p><code>cd</code> 到 zip 文件所在位置，然后：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip android-ndk-[ndk_version]-linux-x86_64.zip</span><br></pre></td></tr></table></figure><p>其中 [ndk_version] 为 NDK 版本。</p><h3 id="安装编译链"><a href="#安装编译链" class="headerlink" title="安装编译链"></a>安装编译链</h3><p>如果需要编译的程序依赖于其他库，那就需要安装编译链（GO 语言编写的多数程序除外），安装编译链的命令为：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[android_ndk_root]/build/tools/make-standalone-toolchain.sh --arch=[arch] --platform=[platform] --install-dir=[install_dir]</span><br></pre></td></tr></table></figure><p>其中，[android_ndk_root] 为解压后的 Android NDK 所在的目录，[arch] 为目标架构（如 arm64），[platform] 为 目标平台（如 android-21 表示 API 版本 为 21（Android 5.0）的 Android 平台，以此类推），[install_dir] 为编译链安装位置（如 ~&#x2F;android-arm64）。<br><strong>注意</strong>：安装编译链前需先安装 <code>python-is-python3</code> 和 <code>python3-distutils-extra</code>，否则会报错：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install python-is-python3 python3-distutils-extra</span><br></pre></td></tr></table></figure><h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PATH</span>:[android_ndk_root]:[android_toolchain_path]/bin&quot;</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;export PATH=\&quot;<span class="variable">$PATH</span>:[android_ndk_root]:[android_toolchain_path]/bin\&quot;&quot;</span> &gt;&gt; ~/.bashrc</span><br></pre></td></tr></table></figure><p>其中 [android_ndk_root] 的含义见上文，[android_toolchain_path] 为所安装的编译链所在位置。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;要为 Android 交叉编译各种程序，就不得不安装 Android NDK。&lt;/p&gt;
+&lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;至少 2GB 的可用存储空间&lt;/l</summary>
+      
+    
+    
+    
+    <category term="编译" scheme="https://blog.yucho.top/categories/%E7%BC%96%E8%AF%91/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.yucho.top/tags/Linux/"/>
+    
+    <category term="Android" scheme="https://blog.yucho.top/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Termux 上编译安装 Caddy</title>
+    <link href="https://blog.yucho.top/2025/08/02/compile-caddy-on-termux.html"/>
+    <id>https://blog.yucho.top/2025/08/02/compile-caddy-on-termux.html</id>
+    <published>2025-08-02T07:48:00.000Z</published>
+    <updated>2025-08-02T07:48:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Termux 官方源中的 Caddy 不包括非标准模块，如果需要包含非标准模块，就需要自己编译。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol><li>需要参考<a href="https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux.html">这篇文章</a>，安装 xcaddy。</li><li>需要一个稳定的梯子&#x2F;节点。</li></ol><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>不包含非标准模块：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcaddy build</span><br></pre></td></tr></table></figure><p>包含非标准模块 replace-response：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xcaddy build \</span><br><span class="line">--with github.com/caddyserver/replace-response</span><br></pre></td></tr></table></figure><p>编译过程中以及编译结束手机可能会卡顿，属正常现象。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>编译好的 Caddy 位于 <code>$HOME/go/bin/caddy</code>，使用 cp 命令将其复制到 Termux 的 bin 目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">$HOME</span>/go/bin/caddy <span class="variable">$PREFIX</span>/bin/</span><br></pre></td></tr></table></figure><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>运行 <code>caddy version</code>，如果输出类似如下，则说明安装完成：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v2.10.0 h1:fonubSaQKF1YANl8TXqGcn4IbIRUDdfAkpcsfI/vX5U=</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Termux 官方源中的 Caddy 不包括非标准模块，如果需要包含非标准模块，就需要自己编译。&lt;/p&gt;
+&lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot; class=&quot;headerlink&quot; title=&quot;准备&quot;&gt;&lt;/a&gt;准备&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;需要参考&lt;a h</summary>
+      
+    
+    
+    
+    <category term="编译" scheme="https://blog.yucho.top/categories/%E7%BC%96%E8%AF%91/"/>
+    
+    
+    <category term="Termux" scheme="https://blog.yucho.top/tags/Termux/"/>
+    
+    <category term="Caddy" scheme="https://blog.yucho.top/tags/Caddy/"/>
+    
+    <category term="xcaddy" scheme="https://blog.yucho.top/tags/xcaddy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在 Termux 上编译安装 xcaddy</title>
+    <link href="https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux.html"/>
+    <id>https://blog.yucho.top/2025/08/02/compile-xcaddy-on-termux.html</id>
+    <published>2025-08-02T05:20:00.000Z</published>
+    <updated>2025-08-02T05:24:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>虽然 Caddy 在 Termux 的官方源中，但是官方源的 Caddy 不包含任何非标准模块。同时，目前官方源中并不包括 xcaddy 。因此，要获得含有非标准模块的 Caddy，就需要先编译安装 xcaddy。</p><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>编译 xcaddy 前，需要先安装 golang：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install golang -y</span><br></pre></td></tr></table></figure><p>同时，还需要准备足够的存储空间（至少 10 MB）和运行内存。</p><h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>执行这条命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest</span><br></pre></td></tr></table></figure><p>输出很少，长这样：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">go: downloading github.com/caddyserver/xcaddy v0.4.5</span><br><span class="line">go: downloading github.com/spf13/cobra v1.9.1</span><br><span class="line">go: downloading github.com/Masterminds/semver/v3 v3.4.0</span><br><span class="line">go: downloading github.com/josephspurrier/goversioninfo v1.5.0</span><br><span class="line">go: downloading github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510</span><br><span class="line">go: downloading github.com/spf13/pflag v1.0.6</span><br><span class="line">go: downloading github.com/akavel/rsrc v0.10.2</span><br></pre></td></tr></table></figure><p>没有意外的话，输出就这些。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>编译好的 xcaddy 位于 <code>$HOME/go/bin/xcaddy</code>，使用 cp 命令将其复制到 Termux 的 bin 目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> <span class="variable">$HOME</span>/go/bin/xcaddy <span class="variable">$PREFIX</span>/bin/</span><br></pre></td></tr></table></figure><h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>运行 <code>xcaddy</code> ，如果输出如下所示则安装成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">go: cannot match &quot;all&quot;: go.mod file not found in current directory or any parent directory; see &#x27;go help modules&#x27;</span><br><span class="line">Error: exec 0x5abfcaa8c0: exit status 1:</span><br><span class="line">exec 0x5abfcaa8c0: exit status 1:</span><br></pre></td></tr></table></figure><p>大功告成。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;虽然 Caddy 在 Termux 的官方源中，但是官方源的 Caddy 不包含任何非标准模块。同时，目前官方源中并不包括 xcaddy 。因此，要获得含有非标准模块的 Caddy，就需要先编译安装 xcaddy。&lt;/p&gt;
+&lt;h2 id=&quot;准备&quot;&gt;&lt;a href=&quot;#准备&quot;</summary>
+      
+    
+    
+    
+    <category term="编译" scheme="https://blog.yucho.top/categories/%E7%BC%96%E8%AF%91/"/>
+    
+    
+    <category term="Termux" scheme="https://blog.yucho.top/tags/Termux/"/>
+    
+    <category term="xcaddy" scheme="https://blog.yucho.top/tags/xcaddy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.yucho.top/2025/08/02/hello-world.html"/>
+    <id>https://blog.yucho.top/2025/08/02/hello-world.html</id>
+    <published>2025-08-02T03:47:00.000Z</published>
+    <updated>2025-08-04T12:18:50.810Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
